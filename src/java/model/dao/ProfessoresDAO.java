@@ -55,6 +55,7 @@ public class ProfessoresDAO {
             stmt.setString(5, professor.getCpf());
             stmt.setInt(6, professor.getId_area());
             stmt.setString(7, professor.getImagem());
+            
             if (stmt.executeUpdate() > 0) {
                 
                 very = true;
@@ -101,9 +102,9 @@ public class ProfessoresDAO {
         return very;
     }
     
-    public boolean logar(String cpf, String senha) {
+    public Professores logar(String cpf, String senha) {
         
-        boolean very = false;
+        Professores prof = new Professores();
         
         try{
             
@@ -117,7 +118,14 @@ public class ProfessoresDAO {
             
             if (rs.next()) {
                 
-                very = true;
+                prof.setId_professor(rs.getInt("id_professor"));
+                prof.setNome(rs.getString("nome"));
+                prof.setMatricula(rs.getString("matricula"));
+                prof.setAdmissao(rs.getDate("admissao"));
+                prof.setSenha(rs.getString("senha"));
+                prof.setCpf(rs.getString("cpf"));
+                prof.setId_area(rs.getInt("id_area"));
+                prof.setImagem(rs.getString("imagem"));
                 
             }
             
@@ -129,7 +137,7 @@ public class ProfessoresDAO {
             e.printStackTrace();
         }
         
-        return very;
+        return prof;
     }
     
 }

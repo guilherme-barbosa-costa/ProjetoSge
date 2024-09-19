@@ -7,9 +7,9 @@ import java.sql.Date;
 public class Professores {
     
     private int id_professor, id_area;
-    private String nome, matricula, senha, cpf,imagem;
+    private String nome, matricula, senha, cpf, imagem;
     private Date admissao;
-
+    
     public Professores() {
     }
 
@@ -22,6 +22,14 @@ public class Professores {
         this.cpf = cpf;
         this.imagem = imagem;
         this.admissao = admissao;
+    }
+  
+    public String getImagem() {
+        return imagem;
+    }
+
+    public void setImagem(String imagem) {
+        this.imagem = imagem;
     }
 
     public int getId_professor() {
@@ -72,14 +80,6 @@ public class Professores {
         this.cpf = cpf;
     }
 
-    public String getImagem() {
-        return imagem;
-    }
-
-    public void setImagem(String imagem) {
-        this.imagem = imagem;
-    }
-
     public Date getAdmissao() {
         return admissao;
     }
@@ -87,13 +87,6 @@ public class Professores {
     public void setAdmissao(Date admissao) {
         this.admissao = admissao;
     }
-
-    
-
-   
- 
-    
-   
     
     
 }
